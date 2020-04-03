@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../App.css'
 
 import StatusList from './StatusList'
+import './Status.css'
 
 
 
@@ -36,6 +37,12 @@ class StatusAll extends Component {
     })
   }
 
+  delete = idx => {
+    let copy = [...this.state.statuses]
+    copy.splice( idx, 1 )
+    this.setState({ statuses: copy })
+  }
+
 
   render() {
     return (
@@ -50,7 +57,10 @@ class StatusAll extends Component {
           <button>Submit My Status!</button>
         </form>
         <div>
-          <StatusList statuses={ this.state.statuses }/>
+          <StatusList 
+            statuses={ this.state.statuses }
+            delete={ this.delete }
+          />
         </div>
       </React.Fragment>
     )

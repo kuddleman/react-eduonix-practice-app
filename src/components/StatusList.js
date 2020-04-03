@@ -11,7 +11,12 @@ class StatusList extends Component {
        
     return (
         this.props.statuses.map( ( status, idx ) => (
-          <Status key={idx} myText={status} />
+          <Status 
+            key={ idx } 
+            index={ idx }
+            myText={ status } 
+            delete={ this.props.delete }
+            />
         ) )
     )
   }
